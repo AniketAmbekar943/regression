@@ -9,7 +9,7 @@ from sklearn.model_selection import train_test_split
 
 #data cleaning and logistic regression
 
-df = pd.read_csv('flight.csv')
+df = pd.read_csv('D:/vscode/regression/flight.csv') #modified path
 df_clean = df.dropna().drop_duplicates()
 df_clean['Frequent'] = (df_clean['FLIGHT_COUNT'] > 10).astype(int)
 X = df_clean[['SEG_KM_SUM']]

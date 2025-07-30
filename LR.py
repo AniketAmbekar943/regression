@@ -5,9 +5,9 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
 
-df = pd.read_csv('datalr.csv')
+df = pd.read_csv('D:/vscode/regression/datalr.csv')
 # print(df)
-
+print(df.corr(numeric_only=True))
 # Data exploration and cleaning
 # df.info()
 # print(df.isnull().sum())
@@ -54,6 +54,7 @@ mse = mean_squared_error(y_test, y_pred)
 print('Mean Squared Error:', mse)
 print('Model Coefficient:', model.coef_)
 print('Model Intercept:', model.intercept_)
+print('R-squared:', model.score(X_test, y_test))
 
 # -------------------------------
 # Plot Actual vs Predicted
