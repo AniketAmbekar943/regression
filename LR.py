@@ -3,11 +3,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_squared_error
+
 
 df = pd.read_csv('D:/vscode/regression/datalr.csv')
 # print(df)
-print(df.corr(numeric_only=True))
+#print(df.corr(numeric_only=True))
 # Data exploration and cleaning
 # df.info()
 # print(df.isnull().sum())
@@ -50,10 +50,10 @@ model.fit(X_train, y_train)
 y_pred = model.predict(X_test)
 
 # Evaluate
-mse = mean_squared_error(y_test, y_pred)
-print('Mean Squared Error:', mse)
-print('Model Coefficient:', model.coef_)
-print('Model Intercept:', model.intercept_)
+avg1 = df_clean['course_detail_len'].mean()
+avg2 = df_clean['course_rating'].mean()
+print('Average property Price:', avg1 )
+print('Average Loan Sanction Amount:', avg2)
 print('R-squared:', model.score(X_test, y_test))
 
 # -------------------------------
