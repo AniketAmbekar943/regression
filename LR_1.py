@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 
 
-df = pd.read_csv('train.csv')
+df = pd.read_csv('D:/vscode/regression/train.csv')
 # print(df)
 
 # Data exploration and cleaning
@@ -29,7 +29,7 @@ df_clean = df_clean.drop_duplicates()
 
 
 # Drop rows with missing income after conversion
-df_clean = df_clean.dropna(subset=['Income (USD)'])
+df_clean = df_clean.dropna(subset=['Property Price'])
 df_clean = df_clean.dropna(subset=['Loan Sanction Amount (USD)'])
 # Define X and y
 X = df_clean[['Property Price']]
@@ -59,8 +59,8 @@ plt.figure(figsize=(8, 6))
 plt.scatter(X_test, y_test, color='blue', label='Actual', alpha=0.3)
 plt.plot(X_test, y_pred, color='red', linewidth=2, label='Predicted')
 
-plt.xlabel('Loan Sanction Amount (USD)')
-plt.ylabel('Income (USD)')
+plt.xlabel('Property Price')
+plt.ylabel('Loan Sanction Amount (USD)')
 plt.title('Linear Regression Fit')
 plt.legend()
 plt.show()
