@@ -6,6 +6,7 @@ from sklearn.linear_model import LinearRegression
 
 
 df = pd.read_csv('D:/vscode/regression/train.csv')
+# print(df.corr(numeric_only=True))
 # print(df)
 # Data exploration and cleaning
 # df.info()
