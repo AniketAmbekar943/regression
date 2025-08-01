@@ -52,8 +52,8 @@ y_pred = model.predict(X_test)
 # Evaluate
 avg1 = df_clean['course_detail_len'].mean()
 avg2 = df_clean['course_rating'].mean()
-print('Average property Price:', avg1 )
-print('Average Loan Sanction Amount:', avg2)
+print('Course Detail Length:', avg1 )
+print('Course Rating:', avg2)
 print('R-squared:', model.score(X_test, y_test))
 
 # -------------------------------
