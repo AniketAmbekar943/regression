@@ -31,8 +31,10 @@ df_clean = df_clean.drop_duplicates()
 # Drop rows with missing income after conversion
 df_clean = df_clean.dropna(subset=['Property Price'])
 df_clean = df_clean.dropna(subset=['Loan Sanction Amount (USD)'])
+df_clean = df_clean.dropna(subset=['Income (USD)'])
+#df_clean = df_clean.dropna(subset=['Credit Score'])
 # Define X and y
-X = df_clean[['Property Price']]
+X = df_clean[['Property Price', 'Income (USD)']]
 y = df_clean['Loan Sanction Amount (USD)']
 
 # Train-test split
@@ -56,8 +58,8 @@ print('R-squared:', model.score(X_test, y_test))
 # Plot Actual vs Predicted
 
 plt.figure(figsize=(8, 6))
-plt.scatter(X_test, y_test, color='blue', label='Actual', alpha=0.3)
-plt.plot(X_test, y_pred, color='red', linewidth=2, label='Predicted')
+plt.scatter(X_test['Property Price'], y_test, color='blue', label='Actual', alpha=0.3)
+plt.plot(X_test['Property Price'], y_pred, color='red', linewidth=2, label='Predicted')
 
 plt.xlabel('Property Price')
 plt.ylabel('Loan Sanction Amount (USD)')
