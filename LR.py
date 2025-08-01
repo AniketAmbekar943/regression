@@ -34,21 +34,16 @@ df_clean = df_clean.dropna(subset=['course_rating'])
 # Example feature: length of course_detail
 df_clean['course_detail_len'] = df_clean['course_detail'].str.len()
 
-# Define X and y
+
 X = df_clean[['course_detail_len']]
 y = df_clean['course_rating']
-
-# Train-test split
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
-
-# Model
 model = LinearRegression()
 model.fit(X_train, y_train)
-
-# Predict
+#prediction 
 y_pred = model.predict(X_test)
 
-# Evaluate
+#printing 
 avg1 = df_clean['course_detail_len'].mean()
 avg2 = df_clean['course_rating'].mean()
 print('Course Detail Length:', avg1 )
