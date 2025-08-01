@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 
-
 df = pd.read_csv('D:/vscode/regression/datalr.csv')
 # print(df)
 #print(df.corr(numeric_only=True))
