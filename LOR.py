@@ -12,7 +12,7 @@ from sklearn.model_selection import train_test_split
 df = pd.read_csv('D:/vscode/regression/flight.csv') #modified path
 df_clean = df.dropna().drop_duplicates()
 df_clean['Frequent'] = (df_clean['FLIGHT_COUNT'] > 10).astype(int)
-X = df_clean[['SEG_KM_SUM']]
+X = df_clean[['SEG_KM_SUM']] 
 y = df_clean['Frequent']
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
 model = LogisticRegression()
@@ -26,7 +26,7 @@ y_prob = model.predict_proba(X_fit)[:, 1]
 #graph
 
 plt.figure(figsize=(10, 6))
-plt.scatter(X_test, y_test, color='skyblue', alpha=0.6, label='Actual')
+plt.scatter(X_test['SEG_KM_SUM'], y_test, color='skyblue', alpha=0.6, label='Actual')
 plt.plot(X_fit, y_prob, color='orange', linewidth=3, label='Logistic Curve')
 plt.xlabel('SEG_KM_SUM')
 plt.ylabel('Frequent Flyer Probability')
